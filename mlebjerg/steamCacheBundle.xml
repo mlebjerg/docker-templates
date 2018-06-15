@@ -3,29 +3,32 @@
   <Name>SteamCacheBundle</Name>
   <Repository>mlebjerg/steamcachebundle:latest</Repository>
   <Registry>https://hub.docker.com/r/mlebjerg/steamcachebundle/</Registry>
-  <GitHub>https://steamcache.github.io/</GitHub>
   <Network>br0</Network>
   <MyIP>192.168.1.108</MyIP>
   <Privileged>false</Privileged>
-  <Support>https://lime-technology.com/forums/topic/54183-support-cheesemarathons-repo/<Support/>
+  <Support>https://lime-technology.com/forums/topic/54183-support-cheesemarathons-repo/</Support>
   <Project/>
-  <Overview/>
-  <Category/>
+  <Overview>SteamcacheBundle provides DNS entries for *.cs.steampowered.com and other download URLs and has GenericCache server and SNIProxy in the built in.&#xD;
+Please see https://squishedmooo.com/?p=1 for install instructions! You will need them!&#xD;
+To see accesslogs type "tail -f /data/logs/access.log" (Without quotes) in the docker console.&#xD;
+Big Thanks to cheesemarathon for all the help!&#xD;
+If you want to use UNRAID's IP download his, containers.</Overview>
+  <Category>Backup: Tools:</Category>
   <WebUI/>
-  <TemplateURL>https://github.com/mlebjerg/dockerTemplates/raw/master/mlebjerg/steamCacheBundle.xml<TemplateURL/>
-  <Icon>https://github.com/mlebjerg/dockerTemplates/raw/master/images/steamcache.png<Icon/>
+  <TemplateURL/>
+  <Icon>https://github.com/mlebjerg/dockerTemplates/raw/master/images/steamcache.png</Icon>
   <ExtraParams/>
   <PostArgs/>
-  <DateInstalled>1529067166</DateInstalled>
+  <DateInstalled>1529071904</DateInstalled>
   <DonateText>Buy Me a Coffee</DonateText>
-    <DonateLink>https://ko-fi.com/O5O7EZ1R</DonateLink>
-	<DonateImg>https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0</DonateImg>
-  <MinVer/>
-  <Description>
-	SteamcacheBundle provides DNS entries for *.cs.steampowered.com and other download URLs and has GenericCache server and SNIProxy in the same container
-	Please see https://squishedmooo.com/?p=1 for install instructions! You will need them!
-	To see accesslogs type "tail -f /data/logs/access.log" (Without quotes) in the docker console.
-	</Description>
+  <DonateLink>https://ko-fi.com/O5O7EZ1R</DonateLink>
+  <DonateImg>https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0</DonateImg>
+  <MinVer>6.0</MinVer>
+  <Description>SteamcacheBundle provides DNS entries for *.cs.steampowered.com and other download URLs and has GenericCache server and SNIProxy in the built in.&#xD;
+Please see https://squishedmooo.com/?p=1 for install instructions! You will need them!&#xD;
+To see accesslogs type "tail -f /data/logs/access.log" (Without quotes) in the docker console.&#xD;
+Big Thanks to cheesemarathon for all the help!&#xD;
+If you want to use UNRAID's IP download his, containers.</Description>
   <Networking>
     <Mode>br0</Mode>
     <Publish>
@@ -41,19 +44,19 @@
       </Port>
       <Port>
         <HostPort>53</HostPort>
-        <ContainerPort/>
+        <ContainerPort>53</ContainerPort>
         <Protocol>udp</Protocol>
       </Port>
     </Publish>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/steamcache/data</HostDir>
+      <HostDir>/mnt/user/steamcache</HostDir>
       <ContainerDir>/data/cache</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/steamcachebundle/logs</HostDir>
+      <HostDir>/mnt/user/appdata/gen-cache/logs</HostDir>
       <ContainerDir>/data/logs</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -65,7 +68,7 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>500m</Value>
+      <Value>5000m</Value>
       <Name>CACHE_MEM_SIZE</Name>
       <Mode/>
     </Variable>
@@ -89,16 +92,59 @@
       <Name>USE_GENERIC_CACHE</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_FRONTIER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_ORIGIN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_RIOT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_STEAM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_UPLAY</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_BLIZZARD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DISABLE_WINDOWS</Name>
+      <Mode/>
+    </Variable>
   </Environment>
-  <Config Name="LANCACHE_IP" Target="LANCACHE_IP" Default="" Mode="" Description="Container Variable: LANCACHE_IP (Has to be the same as the HOST's IP. If you set the container's IP to 192.168.1.108 this has to be the same. If you use bridge it has to be the same as unRAID's IP.)" Type="Variable" Display="always" Required="false" Mask="false">192.168.1.108</Config>
-  <Config Name="Data" Target="/data/cache" Default="/mnt/user/steamcache/data" Mode="rw" Description="Container Path: /data/cache. This is where the data is cached." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/gathered-cache/data</Config>
-  <Config Name="Logs" Target="/data/logs" Default="/mnt/user/appdata/gathered-cache/logs" Mode="rw" Description="Container Path: /data/logs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/gathered-cache/logs</Config>
-  <Config Name="Default Port" Target="" Default="80" Mode="tcp" Description="Must be 80!" Type="Port" Display="always" Required="false" Mask="false">80</Config>
-  <Config Name="CACHE_MEM_SIZE" Target="CACHE_MEM_SIZE" Default="" Mode="" Description="Container Variable: CACHE_MEM_SIZE" Type="Variable" Display="always" Required="false" Mask="false">5000m</Config>
-  <Config Name="CACHE_DISK_SIZE" Target="CACHE_DISK_SIZE" Default="" Mode="" Description="Container Variable: CACHE_DISK_SIZE" Type="Variable" Display="always" Required="false" Mask="false">2000g</Config>
-  <Config Name="CACHE_MAX_AGE" Target="CACHE_MAX_AGE" Default="" Mode="" Description="Container Variable: CACHE_MAX_AGE" Type="Variable" Display="always" Required="false" Mask="false">150d</Config>
-  <Config Name="443" Target="" Default="443" Mode="tcp" Description="Container Port: 443 MUST BE 443 (Its for SNIProxy) " Type="Port" Display="always" Required="false" Mask="false">443</Config>
-  <Config Name="DNS UDP Port" Target="" Default="53" Mode="udp" Description="Container Port: 53/ UDP MUST BE 53! (It's for Bind9) " Type="Port" Display="always" Required="false" Mask="false">53</Config>
-  <Config Name="UPSTREAM_DNS" Target="UPSTREAM_DNS" Default="" Mode="" Description="Container Variable: UPSTREAM_DNS" Type="Variable" Display="always" Required="false" Mask="false">1.1.1.1</Config>
-  <Config Name="USE_GENERIC_CACHE" Target="USE_GENERIC_CACHE" Default="" Mode="" Description="Container Variable: USE_GENERIC_CACHE" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Labels/>
+  <Config Name="LANCACHE_IP" Target="LANCACHE_IP" Default="" Mode="" Description="IP Address of cache container. (Has to be the same as the HOST's IP. If you set the container's IP to 192.168.1.108 this has to be the same. If you use bridge it has to be the same as unRAID's IP.)" Type="Variable" Display="always" Required="true" Mask="false">192.168.1.108</Config>
+  <Config Name="data" Target="/data/cache" Default="" Mode="rw" Description="Location to store the cached files" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/steamcache</Config>
+  <Config Name="Logs" Target="/data/logs" Default="" Mode="rw" Description="Location to store the cache logs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/gen-cache/logs</Config>
+  <Config Name="Default Port" Target="" Default="" Mode="tcp" Description="Container Port: Must be 80!" Type="Port" Display="always" Required="false" Mask="false">80</Config>
+  <Config Name="CACHE_MEM_SIZE" Target="CACHE_MEM_SIZE" Default="" Mode="" Description="Memory size for the cache" Type="Variable" Display="always" Required="false" Mask="false">5000m</Config>
+  <Config Name="CACHE_DISK_SIZE" Target="CACHE_DISK_SIZE" Default="" Mode="" Description="Max size for the cache" Type="Variable" Display="always" Required="false" Mask="false">2000g</Config>
+  <Config Name="CACHE_MAX_AGE" Target="CACHE_MAX_AGE" Default="" Mode="" Description="Max age for files in the cache" Type="Variable" Display="always" Required="false" Mask="false">150d</Config>
+  <Config Name="443" Target="" Default="" Mode="tcp" Description="Container Port: 443&#13;&#10;SNIProxy port, don't change!" Type="Port" Display="always" Required="false" Mask="false">443</Config>
+  <Config Name="DNS UDP Port" Target="53" Default="53" Mode="udp" Description="DNS port, don't change!" Type="Port" Display="advanced" Required="true" Mask="false">53</Config>
+  <Config Name="UPSTREAM_DNS" Target="UPSTREAM_DNS" Default="" Mode="" Description="Container Variable: UPSTREAM_DNS" Type="Variable" Display="advanced" Required="true" Mask="false">1.1.1.1</Config>
+  <Config Name="USE_GENERIC_CACHE" Target="USE_GENERIC_CACHE" Default="" Mode="" Description="Must be set to true to use generic cache" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="DISABLE_FRONTIER" Target="DISABLE_FRONTIER" Default="" Mode="" Description="Set to true to disable frontier caching" Type="Variable" Display="advanced-hide" Required="false" Mask="false"/>
+  <Config Name="DISABLE_ORIGIN" Target="DISABLE_ORIGIN" Default="" Mode="" Description="Set to true to disable origin caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_RIOT" Target="DISABLE_RIOT" Default="" Mode="" Description="Set to true to disable riot caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_STEAM" Target="DISABLE_STEAM" Default="" Mode="" Description="Set to true to disable steam caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_UPLAY" Target="DISABLE_UPLAY" Default="" Mode="" Description="Set to true to disable uplay caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_BLIZZARD" Target="DISABLE_BLIZZARD" Default="" Mode="" Description="Set to true to disable blizzard caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="DISABLE_WINDOWS" Target="DISABLE_WINDOWS" Default="" Mode="" Description="Set to true to disable windows update caching" Type="Variable" Display="advanced" Required="false" Mask="false"/>
 </Container>
