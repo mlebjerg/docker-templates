@@ -9,7 +9,7 @@
   <Support>https://lime-technology.com/forums/topic/54183-support-cheesemarathons-repo/</Support>
   <Project/>
   <Overview>SteamcacheBundle provides DNS entries for *.cs.steampowered.com and other download URLs and has GenericCache server and SNIProxy in the built in.&#xD;
-Please see https://squishedmooo.com/?p=1 for install instructions! You will need them!&#xD;
+Please see https://squishedmooo.com/the-new-and-easier-all-in-one-steamcache/ for install instructions! You will need them!&#xD;
 To see accesslogs type "tail -f /data/logs/access.log" (Without quotes) in the docker console.&#xD;
 Big Thanks to cheesemarathon for all the help!&#xD;
 If you want to use UNRAID's IP download his, containers.</Overview>
