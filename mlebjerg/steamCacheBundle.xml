@@ -68,7 +68,7 @@ If you want to use UNRAID's IP download his, containers.</Description>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>5000m</Value>
+      <Value>500m</Value>
       <Name>CACHE_MEM_SIZE</Name>
       <Mode/>
     </Variable>
