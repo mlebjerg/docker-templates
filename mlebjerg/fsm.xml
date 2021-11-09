@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>fsm</Name>
+  <Repository>ofsm/ofsm:latest</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview/>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:8071]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://avatars.githubusercontent.com/u/73571001?s=200&amp;amp;v=4</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1636483085</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8071</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>34197</HostPort>
+        <ContainerPort>34197</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/fsm/fsm-data</HostDir>
+      <ContainerDir>/opt/fsm-data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/fsm/factorio-data/saves</HostDir>
+      <ContainerDir>/opt/factorio/saves</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/fsm/factorio-data/mods</HostDir>
+      <ContainerDir>opt/factorio/mods</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/fsm/factorio-data/config</HostDir>
+      <ContainerDir>/opt/factorio/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/fsm/factorio-data/mod_packs</HostDir>
+      <ContainerDir>/opt/fsm/mod_packs</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>latest</Value>
+      <Name>FACTORIO_VERSION</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>admin</Value>
+      <Name>RCON_PASS</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="FACTORIO_VERSION" Target="FACTORIO_VERSION" Default="latest" Mode="" Description="Container Variable: FACTORIO_VERSION" Type="Variable" Display="always" Required="false" Mask="false">latest</Config>
+  <Config Name="RCON_PASS" Target="RCON_PASS" Default="" Mode="" Description="Container Variable: RCON_PASS" Type="Variable" Display="always" Required="false" Mask="true">admin</Config>
+  <Config Name="Web GUI" Target="80" Default="8071" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8071</Config>
+  <Config Name="Game server" Target="34197" Default="34197" Mode="udp" Description="Container Port: 34197" Type="Port" Display="always" Required="false" Mask="false">34197</Config>
+  <Config Name="fsm-data" Target="/opt/fsm-data" Default="/mnt/user/appdata/fsm/fsm-data" Mode="rw" Description="Container Path: /opt/fsm-data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/fsm-data</Config>
+  <Config Name="factorio saves" Target="/opt/factorio/saves" Default="/mnt/user/appdata/fsm/factorio-data/saves" Mode="rw" Description="Container Path: /opt/factorio/saves" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/saves</Config>
+  <Config Name="factorio mods" Target="opt/factorio/mods" Default="/mnt/user/appdata/fsm/factorio-data/mods" Mode="rw" Description="Container Path: opt/factorio/mods" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/mods</Config>
+  <Config Name="/opt/factorio/config" Target="/opt/factorio/config" Default="/mnt/user/appdata/fsm/factorio-data/config" Mode="rw" Description="Container Path: /opt/factorio/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/config</Config>
+  <Config Name="fsm mod_packs" Target="/opt/fsm/mod_packs" Default="/mnt/user/appdata/fsm/factorio-data/mod_packs" Mode="rw" Description="Container Path: /opt/fsm/mod_packs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/mod_packs</Config>
+</Container>
