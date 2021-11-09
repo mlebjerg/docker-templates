@@ -17,7 +17,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1636483085</DateInstalled>
+  <DateInstalled>1636483348</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description/>
@@ -49,7 +49,7 @@
     </Volume>
     <Volume>
       <HostDir>/mnt/user/appdata/fsm/factorio-data/mods</HostDir>
-      <ContainerDir>opt/factorio/mods</ContainerDir>
+      <ContainerDir>/opt/factorio/mods</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -82,7 +82,7 @@
   <Config Name="Game server" Target="34197" Default="34197" Mode="udp" Description="Container Port: 34197" Type="Port" Display="always" Required="false" Mask="false">34197</Config>
   <Config Name="fsm-data" Target="/opt/fsm-data" Default="/mnt/user/appdata/fsm/fsm-data" Mode="rw" Description="Container Path: /opt/fsm-data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/fsm-data</Config>
   <Config Name="factorio saves" Target="/opt/factorio/saves" Default="/mnt/user/appdata/fsm/factorio-data/saves" Mode="rw" Description="Container Path: /opt/factorio/saves" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/saves</Config>
-  <Config Name="factorio mods" Target="opt/factorio/mods" Default="/mnt/user/appdata/fsm/factorio-data/mods" Mode="rw" Description="Container Path: opt/factorio/mods" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/mods</Config>
+  <Config Name="factorio mods" Target="/opt/factorio/mods" Default="/mnt/user/appdata/fsm/factorio-data/mods" Mode="rw" Description="Container Path: opt/factorio/mods" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/mods</Config>
   <Config Name="/opt/factorio/config" Target="/opt/factorio/config" Default="/mnt/user/appdata/fsm/factorio-data/config" Mode="rw" Description="Container Path: /opt/factorio/config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/config</Config>
   <Config Name="fsm mod_packs" Target="/opt/fsm/mod_packs" Default="/mnt/user/appdata/fsm/factorio-data/mod_packs" Mode="rw" Description="Container Path: /opt/fsm/mod_packs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/fsm/factorio-data/mod_packs</Config>
 </Container>
